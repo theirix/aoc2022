@@ -4,7 +4,7 @@ pub const ANSWER: Answer = answer!(24000, 45000);
 
 pub fn process_a(lines: Vec<String>) -> usize {
     let mut elfs: Vec<usize> = vec![];
-    let mut elf_calories : usize = 0;
+    let mut elf_calories: usize = 0;
     for line in lines {
         if line.is_empty() {
             elfs.push(elf_calories);
@@ -23,7 +23,7 @@ pub fn process_a(lines: Vec<String>) -> usize {
 
 pub fn process_b(lines: Vec<String>) -> usize {
     let mut elfs: Vec<usize> = vec![];
-    let mut elf_calories : usize = 0;
+    let mut elf_calories: usize = 0;
     for line in lines {
         if line.is_empty() {
             elfs.push(elf_calories);
@@ -36,6 +36,6 @@ pub fn process_b(lines: Vec<String>) -> usize {
     if elf_calories > 0 {
         elfs.push(elf_calories);
     }
-    elfs.sort_by(|a,b| b.cmp(a));
+    elfs.sort_by(|a, b| b.cmp(a));
     elfs[0..3].iter().sum()
 }
