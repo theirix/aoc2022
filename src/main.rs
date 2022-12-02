@@ -9,6 +9,7 @@ use std::io::BufRead;
 mod common;
 
 mod day1;
+mod day2;
 
 /* Common functions */
 
@@ -92,12 +93,7 @@ macro_rules! days {
 /// Collect all days from crate
 fn init_registry() -> anyhow::Result<Registry> {
     let mut registry: Registry = HashMap::new();
-    days!(
-        registry,
-        (
-            day1
-        )
-    );
+    days!(registry, (day1, day2));
     Ok(registry)
 }
 
