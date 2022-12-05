@@ -96,7 +96,7 @@ macro_rules! days {
 /// Collect all days from crate
 fn init_registry() -> anyhow::Result<Registry> {
     let mut registry: Registry = HashMap::new();
-    days!(registry, (day1, day2, day3, day4));
+    days!(registry, (day1, day2, day3, day4, day5));
     Ok(registry)
 }
 
