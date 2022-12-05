@@ -12,6 +12,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 /* Common functions */
 
@@ -31,7 +32,7 @@ fn read_lines_from_file(filename: String) -> anyhow::Result<Vec<String>> {
     Ok(lines)
 }
 
-fn check_answer(answer: usize, correct_answer: usize) -> anyhow::Result<()> {
+fn check_answer(answer: String, correct_answer: &str) -> anyhow::Result<()> {
     if answer == correct_answer {
         println!("{}", format!("CORRECT: {}", answer).green());
         Ok(())
@@ -49,7 +50,7 @@ enum TaskType {
     B,
 }
 
-type FnProcess = Box<dyn Fn(Vec<String>) -> usize>;
+type FnProcess = Box<dyn Fn(Vec<String>) -> String>;
 struct Task {
     answer: common::Answer,
     process_a: FnProcess,
@@ -123,11 +124,11 @@ fn main() -> anyhow::Result<()> {
     }?;
     let registry = init_registry()?;
     let task: &Task = registry.get(&day).context("No such day")?;
-    let answer: usize = match task_type {
+    let answer: String = match task_type {
         TaskType::A => (task.process_a)(lines),
         TaskType::B => (task.process_b)(lines),
     };
-    let expected_answer: usize = match task_type {
+    let expected_answer: &str = match task_type {
         TaskType::A => task.answer.a,
         TaskType::B => task.answer.b,
     };

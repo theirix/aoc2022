@@ -1,8 +1,8 @@
 use crate::{answer, common::Answer};
 
-pub const ANSWER: Answer = answer!(24000, 45000);
+pub const ANSWER: Answer = answer!("24000", "45000");
 
-pub fn process_a(lines: Vec<String>) -> usize {
+pub fn process_a(lines: Vec<String>) -> String {
     let mut elfs: Vec<usize> = vec![];
     let mut elf_calories: usize = 0;
     for line in lines {
@@ -18,10 +18,10 @@ pub fn process_a(lines: Vec<String>) -> usize {
         elfs.push(elf_calories);
     }
     println!("{:?}", elfs);
-    *elfs.iter().max().unwrap()
+    elfs.iter().max().unwrap().to_string()
 }
 
-pub fn process_b(lines: Vec<String>) -> usize {
+pub fn process_b(lines: Vec<String>) -> String {
     let mut elfs: Vec<usize> = vec![];
     let mut elf_calories: usize = 0;
     for line in lines {
@@ -37,5 +37,5 @@ pub fn process_b(lines: Vec<String>) -> usize {
         elfs.push(elf_calories);
     }
     elfs.sort_by(|a, b| b.cmp(a));
-    elfs[0..3].iter().sum()
+    elfs[0..3].iter().sum::<usize>().to_string()
 }

@@ -1,6 +1,6 @@
 use crate::{answer, common::Answer};
 
-pub const ANSWER: Answer = answer!(15, 12);
+pub const ANSWER: Answer = answer!("15", "12");
 
 #[derive(Eq, PartialEq)]
 enum Figure {
@@ -20,7 +20,7 @@ fn parse_figure(s: &str) -> Figure {
     }
 }
 
-pub fn process_a(lines: Vec<String>) -> usize {
+pub fn process_a(lines: Vec<String>) -> String {
     lines
         .iter()
         .map(|s| s.split_once(' ').unwrap())
@@ -49,10 +49,11 @@ pub fn process_a(lines: Vec<String>) -> usize {
             };
             round_result + figure_result
         })
-        .sum()
+        .sum::<usize>()
+        .to_string()
 }
 
-pub fn process_b(lines: Vec<String>) -> usize {
+pub fn process_b(lines: Vec<String>) -> String {
     lines
         .iter()
         .map(|s| s.split_once(' ').unwrap())
@@ -85,5 +86,6 @@ pub fn process_b(lines: Vec<String>) -> usize {
             };
             round_result + figure_result
         })
-        .sum()
+        .sum::<usize>()
+        .to_string()
 }

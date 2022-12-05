@@ -1,6 +1,6 @@
 use crate::{answer, common::Answer};
 
-pub const ANSWER: Answer = answer!(2, 4);
+pub const ANSWER: Answer = answer!("2", "4");
 
 type Interval = (usize, usize);
 
@@ -14,22 +14,24 @@ pub fn is_covered(a: Interval, b: Interval) -> bool {
     a.0 <= b.0 && a.1 >= b.1
 }
 
-pub fn process_a(lines: Vec<String>) -> usize {
+pub fn process_a(lines: Vec<String>) -> String {
     lines
         .iter()
         .map(parse)
         .filter(|(i1, i2)| is_covered(*i1, *i2) || is_covered(*i2, *i1))
         .count()
+        .to_string()
 }
 
 pub fn is_overlapped(a: Interval, b: Interval) -> bool {
     a.1 >= b.0 && a.0 <= b.1
 }
 
-pub fn process_b(lines: Vec<String>) -> usize {
+pub fn process_b(lines: Vec<String>) -> String {
     lines
         .iter()
         .map(parse)
         .filter(|(i1, i2)| is_overlapped(*i1, *i2))
         .count()
+        .to_string()
 }

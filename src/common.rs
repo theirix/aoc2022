@@ -1,6 +1,6 @@
 pub struct Answer {
-    pub a: usize,
-    pub b: usize,
+    pub a: &'static str,
+    pub b: &'static str,
     pub path: &'static str,
 }
 
