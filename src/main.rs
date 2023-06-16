@@ -16,6 +16,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 /* Common functions */
 
@@ -99,7 +100,10 @@ macro_rules! days {
 /// Collect all days from crate
 fn init_registry() -> anyhow::Result<Registry> {
     let mut registry: Registry = HashMap::new();
-    days!(registry, (day1, day2, day3, day4, day5, day6, day7, day8));
+    days!(
+        registry,
+        (day1, day2, day3, day4, day5, day6, day7, day8, day9)
+    );
     Ok(registry)
 }
 
