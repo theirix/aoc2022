@@ -9,6 +9,7 @@ use std::io::BufRead;
 mod common;
 
 mod day1;
+mod day10;
 mod day2;
 mod day3;
 mod day4;
@@ -102,7 +103,7 @@ fn init_registry() -> anyhow::Result<Registry> {
     let mut registry: Registry = HashMap::new();
     days!(
         registry,
-        (day1, day2, day3, day4, day5, day6, day7, day8, day9)
+        (day1, day2, day3, day4, day5, day6, day7, day8, day9, day10)
     );
     Ok(registry)
 }
